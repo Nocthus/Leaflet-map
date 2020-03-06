@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import leaflet from 'leaflet';
 import 'leaflet-routing-machine';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -10,9 +11,156 @@ import 'leaflet-routing-machine';
 export class HomePage {
   @ViewChild('map') mapContainer: ElementRef;
   map: any;
-  constructor(public navCtrl: NavController) {
+  testRadioOpen: boolean;
+  testRadioResult;
+
+  
+
+  public map_blocos = {
+    blocos:[
+      {
+        bloco: 0,
+        Latitude: -3.76888876,
+        Longetude: -38.47862452,
+        label: "bloco M"
+      },
+      {
+        bloco: 1,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "bloco E"
+      },
+      {
+        bloco: 2,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "DCE"
+      },
+      {
+        bloco: 3,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco B"
+      },
+      {
+        bloco: 4,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco D"
+      },
+      {
+        bloco: 5,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco K"
+      },
+      {
+        bloco: 6,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco H"
+      },
+      {
+        bloco: 7,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco S"
+      },
+      {
+        bloco: 8,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco Q"
+      },
+      {
+        bloco: 9,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco C"
+      },
+      {
+        bloco: 10,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco A"
+      },
+      {
+        bloco: 11,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco F"
+      },
+      {
+        bloco: 12,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco I"
+      },
+      {
+        bloco: 13,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco J"
+      },
+      {
+        bloco: 14,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco L"
+      },
+      {
+        bloco: 15,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco O"
+      },
+      {
+        bloco: 16,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco N"
+      },
+      {
+        bloco: 17,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco P"
+      },
+      {
+        bloco: 18,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco R"
+      },
+      {
+        bloco: 19,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bloco T"
+      },
+      {
+        bloco: 20,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Reitoria"
+      },
+      {
+        bloco: 21,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Bliblioteca"
+      },
+      {
+        bloco: 22,
+        Latitude: -3.77025900, 
+        Longetude: -38.48157500,
+        label: "Centro de Convivencia"
+      },
+      
+    ]
 
   }
+  constructor(public alerCtrl: AlertController) {}
 
   ionViewDidEnter() {
     this.loadmap();
@@ -69,6 +217,150 @@ export class HomePage {
           leaflet.latLng(-3.76888876, -38.47862452)
       ]
   }).addTo(this.map);
+
+  }
+
+  addLine(){
+    {
+      let alert = this.alerCtrl.create();
+      alert.setTitle('Escolha o seu destino');
+  
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[0].label,
+        value: 'blue',
+        checked: true
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[1].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[2].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[3].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[4].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[5].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[6].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[7].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[8].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[9].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[10].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[11].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[12].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[13].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[14].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[15].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[16].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[17].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[18].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[19].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[20].label,
+        value: 'green'
+      });
+      alert.addInput({
+        type: 'radio',
+        label: this.map_blocos.blocos[21].label,
+        value: 'green'
+      });
+     // alert.addInput({
+    //    type: 'radio',
+    //    label: this.map_blocos.blocos[22].label,
+   //     value: 'green'
+   //   });
+  
+  
+  
+  
+  
+      alert.addButton('Cancel');
+      alert.addButton({
+        text: 'Ok',
+        handler: data => {
+          console.log('Radio data:', data);
+          this.testRadioOpen = false;
+          this.testRadioResult = data;
+        }
+       
+      });
+  
+      alert.present().then(() => {
+        this.testRadioOpen = true;
+      });
+    }
 
   }
 
